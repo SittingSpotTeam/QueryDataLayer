@@ -58,7 +58,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Query'
+              $ref: '#/components/schemas/QueryInDTO'
         required: true
       responses:
         201:
@@ -119,6 +119,18 @@ components:
           type: string
         value:
           type: string
+    QueryInDTO:
+      properties:
+        area:
+          $ref: '#/components/schemas/Area'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+        labels:
+          type: array
+          items:
+            type: string
     Query:
       properties:
         queryId:
