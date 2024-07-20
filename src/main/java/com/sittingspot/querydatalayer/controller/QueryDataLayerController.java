@@ -1,6 +1,7 @@
 package com.sittingspot.querydatalayer.controller;
 
 import com.sittingspot.querydatalayer.DTO.QueryInDTO;
+import com.sittingspot.querydatalayer.DTO.QueryOutDTO;
 import com.sittingspot.querydatalayer.models.Area;
 import com.sittingspot.querydatalayer.models.Query;
 import com.sittingspot.querydatalayer.models.QueryResult;
@@ -15,10 +16,10 @@ import java.util.UUID;
 public class QueryDataLayerController {
 
     @GetMapping("/")
-    public List<Query> getQueries(@RequestParam("queryId") UUID queryId,
-                                  @RequestParam("location") Area location,
-                                  @RequestParam("tags") List<Tag> tags,
-                                  @RequestParam("labels") List<String> labels){
+    public List<QueryOutDTO> getQueries(@RequestParam("queryId") UUID queryId,
+                                        @RequestParam("location") Area location,
+                                        @RequestParam("tags") List<Tag> tags,
+                                        @RequestParam("labels") List<String> labels){
 
         return List.of();
     }
