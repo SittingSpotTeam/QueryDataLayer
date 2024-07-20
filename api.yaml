@@ -49,15 +49,7 @@ paths:
               schema:
                 type: array
                 items:
-                  type: object
-                  properties:
-                    query:
-                      $ref : '#/components/schemas/Query'
-                    result:
-                      type: array
-                      items:
-                        $ref : '#/components/schemas/QueryResult'
-
+                  $ref : '#/components/schemas/Query'
     post:
       summary: Post a new query
       description: create a new query entry to be later updated with the result
@@ -80,6 +72,13 @@ paths:
           description: Invalid input
   /{Id}:
     put:
+      parameters:
+        - name: Id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
       summary: Updates a query entry with the result
       description: Add the result of a query
       operationId: updateQuery
@@ -122,6 +121,9 @@ components:
           type: string
     Query:
       properties:
+        queryId:
+          type: string
+          format: uuid
         area:
           $ref : '#/components/schemas/Area'
         tags:
@@ -132,6 +134,10 @@ components:
           type: array
           items:
             type: string
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/QueryResult'
     QueryResult:
       properties:
         spotId:
