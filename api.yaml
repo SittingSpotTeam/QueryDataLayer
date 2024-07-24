@@ -9,16 +9,9 @@ paths:
   /:
     get:
       summary: Get queries
-      description: Get the queries partially applicable to the specified parameters
+      description: Get the queries applicable to the specified parameters
       operationId: getQueries
       parameters:
-        - name: queryId
-          in: query
-          description: unique id of the query
-          required: true
-          schema:
-            type: string
-            format: uuid
         - name: location
           in: query
           description: General position of the search

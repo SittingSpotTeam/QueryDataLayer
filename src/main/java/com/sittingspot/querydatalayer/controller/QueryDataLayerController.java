@@ -24,8 +24,7 @@ public class QueryDataLayerController {
     private QueryRepository queryRepository;
 
     @GetMapping("/")
-    public List<QueryOutDTO> getQueries(@RequestParam("queryId") UUID queryId,
-                                        @RequestParam("location") Area location,
+    public List<QueryOutDTO> getQueries(@RequestParam("location") Area location,
                                         @RequestParam("tags") List<Tag> tags,
                                         @RequestParam("labels") List<String> labels){
         return queryRepository.findByArea(location).stream().filter(x ->
