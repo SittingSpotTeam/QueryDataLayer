@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
-@RestController("/query-dl/api/v1")
+@RestController("/api/v1")
 public class QueryDataLayerController {
 
     private QueryRepository queryRepository;

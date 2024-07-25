@@ -5,5 +5,5 @@ import jakarta.persistence.Embeddable;
 import java.util.UUID;
 
 @Embeddable
-public record QueryResult(UUID spotId, Location location) {
+public record QueryResult(String spotId, Location location) {
 }
