@@ -49,6 +49,6 @@ public class Query {
         this.area = dto.area();
         this.tags = dto.tags();
         this.labels = dto.labels();
-        this.id = UUID.randomUUID();
+        this.results = dto.results();
     }
 }

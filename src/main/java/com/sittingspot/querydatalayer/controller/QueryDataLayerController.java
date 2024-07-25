@@ -39,11 +39,11 @@ public class QueryDataLayerController {
         return newQuery.getId();
     }
 
-    @PutMapping("/{Id}")
+    /*@PutMapping("/{Id}")
     public void updateQuery(@PathVariable UUID Id, @RequestBody List<QueryResult> results) {
         var q = queryRepository.findById(Id).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "query not found"));
         results.addAll(q.getResults());
         q.setResults((new HashSet<>(results)).stream().toList());
-    }
+    }*/
 }

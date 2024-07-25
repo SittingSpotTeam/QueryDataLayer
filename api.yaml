@@ -124,6 +124,10 @@ components:
           type: array
           items:
             type: string
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/QueryResult'
     Query:
       properties:
         queryId:
