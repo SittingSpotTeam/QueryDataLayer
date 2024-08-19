@@ -2,10 +2,7 @@ package com.sittingspot.querydatalayer.controller;
 
 import com.sittingspot.querydatalayer.DTO.QueryInDTO;
 import com.sittingspot.querydatalayer.DTO.QueryOutDTO;
-import com.sittingspot.querydatalayer.models.Area;
-import com.sittingspot.querydatalayer.models.Query;
-import com.sittingspot.querydatalayer.models.QueryResult;
-import com.sittingspot.querydatalayer.models.Tag;
+import com.sittingspot.querydatalayer.models.*;
 import com.sittingspot.querydatalayer.repository.QueryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.repository.query.Param;
@@ -24,11 +21,14 @@ public class QueryDataLayerController {
     private QueryRepository queryRepository;
 
     @GetMapping("/")
-    public List<QueryOutDTO> getQueries(@RequestParam("location") Area location,
+    public List<QueryOutDTO> getQueries(@RequestParam("x") Double x,
+                                        @RequestParam("y") Double y,
+                                        @RequestParam("area") Double area,
                                         @RequestParam("tags") List<Tag> tags,
                                         @RequestParam("labels") List<String> labels){
-        return queryRepository.findByArea(location).stream().filter(x ->
-                (new HashSet<>(x.getTags()).containsAll(tags) && new HashSet<>(x.getLabels()).containsAll(labels))
+        var location = new Area(new Location(x,y),area);
+        return queryRepository.findByArea(location).stream().filter(e ->
+                (new HashSet<>(e.getTags()).containsAll(tags) && new HashSet<>(e.getLabels()).containsAll(labels))
         ).map(Query::toOutDTO).toList();
     }
 
