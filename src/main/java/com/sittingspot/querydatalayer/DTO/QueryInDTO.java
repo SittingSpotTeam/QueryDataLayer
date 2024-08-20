@@ -1,8 +1,11 @@
 package com.sittingspot.querydatalayer.DTO;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.sittingspot.querydatalayer.models.Area;
 import com.sittingspot.querydatalayer.models.QueryResult;
 import com.sittingspot.querydatalayer.models.Tag;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,5 +13,12 @@ import java.util.List;
 /**
  * DTO for {@link com.sittingspot.querydatalayer.models.Query}
  */
-public record QueryInDTO(Area area, List<Tag> tags, List<String> labels, List<QueryResult> results) implements Serializable {
+@Getter
+@Setter
+@JsonAutoDetect
+public class QueryInDTO implements Serializable {
+    private Area area;
+    private List<Tag> tags;
+    private List<String> labels;
+    private List<QueryResult> results;
 }

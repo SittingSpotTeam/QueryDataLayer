@@ -46,9 +46,9 @@ public class Query {
     }
 
     public Query(QueryInDTO dto){
-        this.area = dto.area();
-        this.tags = dto.tags();
-        this.labels = dto.labels();
-        this.results = dto.results();
+        this.area = dto.getArea();
+        this.tags = dto.getTags();
+        this.labels = dto.getLabels();
+        this.results = dto.getResults();
     }
 }

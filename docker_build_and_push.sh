@@ -1,1 +1,1 @@
-docker build . -t sittingspotapp/querydatalayer:1.5-dev && docker push sittingspotapp/querydatalayer:1.5-dev
+docker build . -t sittingspotapp/querydatalayer:1.7-dev && docker push sittingspotapp/querydatalayer:1.7-dev

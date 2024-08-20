@@ -11,8 +11,8 @@ import java.util.UUID;
 
 public interface QueryRepository extends JpaRepository<Query, UUID> {
 
-    @org.springframework.data.jpa.repository.Query(value = "SELECT * from query q " +
-            "where q.location.x between :area.center.x - :area.range and :area.center.x + :area.range " +
-            "and q.location.y between :area.center.y - :area.range and :area.center.y + :area.range ", nativeQuery = true)
-    public List<Query> findByArea(@Param("area") Area area);
+    @org.springframework.data.jpa.repository.Query(value = "SELECT q FROM Query q " +
+            "where q.area.center.x between :x - :range and :x + :range " +
+            "and q.area.center.y between :y - :range and :y + :range ")
+    public List<Query> findByArea(@Param("x") Double x,@Param("y") Double y,@Param("range") Double range);
 }
