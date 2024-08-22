@@ -4,7 +4,7 @@ info:
   description: Data Layer managing information about past queries.
   version: 1.0.0
 servers:
-  - url: https://query-dl/api/v1
+  - url: http://querydatalayer/api/v1
 paths:
   /:
     get:
